@@ -1,0 +1,106 @@
+/* line 82, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+.Appointment {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: flex-end;
+}
+
+.Appointment .login_button {
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    padding: 0;
+    border: none;
+    background: none;
+    text-decoration: underline;
+}
+
+.Appointment .login_button:active,
+.Appointment .login_button:focus {
+    outline: none;
+}
+
+.Appointment .login_button::-moz-focus-inner {
+    border: 0;
+}
+
+/* line 86, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+.Appointment .phone_num {
+    margin-right: 30px;
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+    /* line 86, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+    .Appointment .phone_num {
+        margin-right: 12px;
+    }
+}
+
+/* line 91, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+.Appointment .phone_num a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+    /* line 91, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+    .Appointment .phone_num a {
+        font-size: 13px;
+    }
+}
+
+/* line 98, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+.Appointment .phone_num a i {
+    color: #33D4D6;
+    font-size: 14px;
+    margin-right: 7px;
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+    /* line 105, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+    .Appointment .boxed-btn4 {
+        padding: 11px 9px 13px 9px;
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 1501px) and (max-width: 1800px) {
+
+    /* line 105, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+    .Appointment .boxed-btn4 {
+        padding: 11px 20px 13px 20px;
+        font-size: 13px;
+    }
+}
+
+/* line 117, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+.Appointment .socail_links ul li {
+    display: inline-block;
+}
+
+/* line 120, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+.Appointment .socail_links ul li a {
+    color: #A8A7A0;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+/* line 124, ../../Arafath/CL/December/235. Job board/HTML/scss/_header.scss */
+.Appointment .socail_links ul li a:hover {
+    color: #fff;
+}

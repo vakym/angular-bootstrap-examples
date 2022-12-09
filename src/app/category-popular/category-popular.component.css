@@ -1,0 +1,185 @@
+.popular_catagory_area {
+    background: #F5F7FA;
+    padding: 40px 0;
+  }
+  
+  /* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
+  .popular_catagory_area .single_catagory {
+    background: #FFFFFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 38px 25px;
+    border: 1px solid transparent;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    margin-bottom: 30px;
+  }
+  
+  /* line 12, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
+  .popular_catagory_area .single_catagory a h4 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  /* line 21, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
+  .popular_catagory_area .single_catagory p {
+    font-size: 16px;
+    color: #AAB1B7;
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+  
+  /* line 26, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
+  .popular_catagory_area .single_catagory p span {
+    background: #E6F3FF;
+    color: #0A8CFF;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 6px 17px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  /* line 36, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
+  .popular_catagory_area .single_catagory:hover {
+    border-color: #B2F2D0;
+  }
+  
+  /* line 37, ../../Arafath/CL/December/235. Job board/HTML/scss/_popular_catagory.scss */
+  .popular_catagory_area .single_catagory:hover h4 {
+    color: #00D363;
+    text-decoration: underline;
+  }
+
+  .featured_candidates_area {
+    background: #F5F7FA;
+    padding-bottom: 40px;
+}
+
+/* line 4, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area.candidate_page_padding {
+    padding-top: 100px;
+}
+
+/* line 6, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area.candidate_page_padding .single_candidates {
+    margin-bottom: 30px;
+}
+
+/* line 10, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .single_candidates {
+    background: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 35px 45px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    /* line 10, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+    .featured_candidates_area .single_candidates {
+        padding: 25px 30px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+    /* line 10, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+    .featured_candidates_area .single_candidates {
+        padding: 25px 20px;
+    }
+}
+
+/* line 20, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .single_candidates .thumb {
+    width: 110px;
+    height: 110px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: auto;
+}
+
+/* line 25, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .single_candidates .thumb img {
+    width: 100%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/* line 30, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .single_candidates h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #001D38;
+    margin-top: 24px;
+    margin-bottom: 6px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+/* line 38, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .single_candidates p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #AAB1B7;
+    margin-bottom: 0;
+}
+
+/* line 45, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .single_candidates:hover h4 {
+    color: #00D363;
+}
+
+/* line 50, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .owl-carousel .owl-nav div {
+    background: rgba(10, 140, 255, 0.1);
+    height: 38px;
+    left: 0px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    width: 38px;
+    color: #0A8CFF;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    left: 50px;
+    font-size: 15px;
+    line-height: 38px;
+    border: none;
+    left: -19px;
+}
+
+/* line 73, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .owl-carousel .owl-nav div.owl-next {
+    left: auto;
+    right: -19px;
+}
+
+/* line 77, ../../Arafath/CL/December/235. Job board/HTML/scss/_candidates.scss */
+.featured_candidates_area .owl-carousel .owl-nav div:hover {
+    background: rgba(10, 140, 255, 0.5);
+    color: #fff;
+    border: none;
+}

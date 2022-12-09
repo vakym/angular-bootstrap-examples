@@ -1,0 +1,51 @@
+<div class="offcanvas-header">
+    <h2 class="offcanvas-title">Корзина</h2>
+    <button type="button" class="btn-close text-reset" aria-label="Close"
+        (click)="activeOffcanvas.dismiss('Cross click')"></button>
+</div>
+<div class="offcanvas-body">
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Кол-во</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img style="width:100%" src="../../assets/img/elements/f1.jpg"/>
+                    </td>
+                    <td><p style="width:30%">Название </p></td>
+                    <td ><input style="width:30%" type="number"/></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img style="width:100%" src="../../assets/img/elements/f2.jpg"/>
+                    </td>
+                    <td><p style="width:30%">Название 333333</p></td>
+                    <td ><input style="width:30%" type="number"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a type="button" class="btn btn-lg boxed-btn3" style="width: 100%;">Оформить заказ</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col p-3">
+                <button type="button" class="btn btn-outline-dark" (click)="activeOffcanvas.close('Close click')"
+                    style="width: 100%;">Очистить корзину</button>
+            </div>
+            <div class="col p-3">
+                <button type="button" class="btn btn-outline-dark" (click)="activeOffcanvas.close('Close click')"
+                    style="width: 100%; height: 100%;">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>

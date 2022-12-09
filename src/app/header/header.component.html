@@ -1,0 +1,55 @@
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid ">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="assets/img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a routerLink="">Главная</a></li>
+                                        <li><a routerLink="/about">О нас</a></li>
+                                        <li><a routerLink="/categories">категории </a></li>     
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <app-user></app-user>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none">
+                                <div class="slicknav_menu">
+                                    <button href="#" aria-haspopup="true" role="button" tabindex="0"
+                                        (click)="isCollapsed = !isCollapsed"
+                                        class="slicknav_btn slicknav_collapsed" style="outline: none;">
+                                            <span class="slicknav_menutxt">MENU</span>
+                                            <span class="slicknav_icon">
+                                                <span class="slicknav_icon-bar"></span>
+                                                <span class="slicknav_icon-bar"></span>
+                                                <span class="slicknav_icon-bar"></span>
+                                            </span>
+                                    </button>
+                                    <ul class="slicknav_nav" [ngbCollapse]="isCollapsed" [attr.aria-hidden]="isCollapsed" role="menu">
+                                        <li><a routerLink="" role="menuitem" tabindex="-1">Главная</a></li>
+                                        <li><a routerLink="/about" role="menuitem" tabindex="-1">О нас</a></li>
+                                        <li><a routerLink="/categories" role="menuitem" tabindex="-1">категории </a></li> 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->

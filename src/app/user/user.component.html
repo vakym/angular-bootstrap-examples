@@ -1,0 +1,4 @@
+<div *ngIf="isLoggin; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><app-login></app-login></ng-template>
+<ng-template #elseBlock><app-user-info></app-user-info></ng-template>
+
