@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatBadgeModule } from '@angular/material/badge';
 import { CartComponent } from './cart/cart.component'
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     NgIconsModule.withIcons({ bootstrapBasket, bootstrapPersonCircle }),
     BrowserAnimationsModule,
     MatBadgeModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    HttpClientModule
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent]
