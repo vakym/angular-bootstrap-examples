@@ -26,6 +26,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { CartComponent } from './cart/cart.component'
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryService } from './service/category.service';
 
 
 @NgModule({
@@ -58,7 +59,10 @@ import { HttpClientModule } from '@angular/common/http';
     NgbDropdownModule,
     HttpClientModule
   ],
-  providers: [NgbActiveModal],
+  providers: [
+    NgbActiveModal,
+    CategoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

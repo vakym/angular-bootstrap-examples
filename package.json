@@ -24,6 +24,7 @@
     "@ng-icons/bootstrap-icons": "^22.4.0",
     "@ng-icons/core": "^22.4.0",
     "@ng-icons/heroicons": "^22.4.0",
+    "@openapitools/openapi-generator-cli": "^2.6.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "rxjs": "~7.5.0",
@@ -31,7 +32,7 @@
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.0.1",
+    "@angular-devkit/build-angular": "^15.2.7",
     "@angular/cli": "~15.0.1",
     "@angular/compiler-cli": "^15.0.0",
     "@angular/localize": "^15.0.0",

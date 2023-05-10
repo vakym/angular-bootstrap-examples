@@ -8,13 +8,12 @@
             </div>
         </div>
         <div class="row featured_candidates_area candidate_page_padding">
-            <div class="col-lg-4 col-xl-3 col-md-6">
+            <div *ngFor="let cat of popularCategories" class="col-lg-4 col-xl-3 col-md-6">
                 <div class="single_candidates text-center">
                     <div class="thumb">
-                        <img src="../assets/img/candiateds/2.png" alt="">
+                        <img src="{{cat.imageURL}}" alt="">
                     </div>
-                    <a href="#"><h4>Markary Jondon</h4></a>
-                    <p>Software Engineer</p>
+                    <a href="#"><h4>{{cat.name}}</h4></a>
                 </div>
             </div>
         </div>
