@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   host: {'class': 'col-xl-3 col-lg-3 d-none d-lg-block'}
 })
 export class UserComponent {
-  isLoggin: boolean = true;
+  constructor(public readonly authService: AuthService) {
+  }
 }

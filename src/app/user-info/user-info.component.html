@@ -10,11 +10,11 @@
             <ng-icon name="bootstrapPersonCircle" size=30 color=white ngbDropdownToggle></ng-icon>
             <div ngbDropdownMenu>
                 <button ngbDropdownItem>Профиль</button>
-                <button ngbDropdownItem>Выход</button>
+                <button ngbDropdownItem (click)="logOut()">Выход</button>
             </div>
         </div>
         <div class="col" style="padding: 35px 0px 35px 0px">
-            <p style="color: white;">Привет! user-name</p>
+            <p style="color: white;">Привет! {{authService.getUserName() | async}}</p>
         </div> 
     </div>
 </div>

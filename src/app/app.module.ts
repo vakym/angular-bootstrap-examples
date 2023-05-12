@@ -26,8 +26,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { CartComponent } from './cart/cart.component'
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { CategoryService } from './service/category.service';
 import { ApiModule } from '../openapi/api.module'
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -50,6 +50,7 @@ import { ApiModule } from '../openapi/api.module'
     CartComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
@@ -62,8 +63,7 @@ import { ApiModule } from '../openapi/api.module'
     ApiModule
   ],
   providers: [
-    NgbActiveModal,
-    CategoryService
+    NgbActiveModal
   ],
   bootstrap: [AppComponent]
 })

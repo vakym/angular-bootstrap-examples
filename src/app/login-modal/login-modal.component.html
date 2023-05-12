@@ -4,9 +4,9 @@
 </div>
 <div class="modal-body">
 	<p>Логин</p>
-	<input id="typeahead-basic" type="text" class="form-control"  />
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="user" />
 	<p>Пароль</p>
-	<input id="typeahead-basic" type="text" class="form-control" />
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="password" />
 	<div class="container p-3">
 		<div class="row">
 			<div class="col">
@@ -19,6 +19,6 @@
 	</div>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn boxed-btn3">Войти</button>
+	<button type="button" class="btn boxed-btn3" (click)="login()">Войти</button>
 	<button type="button" class="btn boxed-btn1" (click)="activeModal.close('Close click')">Отмена</button>
 </div>
