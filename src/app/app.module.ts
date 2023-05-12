@@ -27,6 +27,7 @@ import { CartComponent } from './cart/cart.component'
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryService } from './service/category.service';
+import { ApiModule } from '../openapi/api.module'
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CategoryService } from './service/category.service';
     BrowserAnimationsModule,
     MatBadgeModule,
     NgbDropdownModule,
-    HttpClientModule
+    HttpClientModule,
+    ApiModule
   ],
   providers: [
     NgbActiveModal,

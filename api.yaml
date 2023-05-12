@@ -1,0 +1,357 @@
+openapi: 3.0.3
+
+info:
+  title: Skydiver
+  description: API
+  version: LATEST
+servers:
+  - url: http://84.201.152.120:9009/
+tags:
+  - name: ping
+    description: metrics
+  - name: registration
+    description: процесс регистрации пользователя
+  - name: product
+    description: получение/поиск продуктов
+  - name: category
+    description: Получение категорий
+  - name: cart
+    description: методы для работы с корзиной
+paths:
+  /category/list:
+    get:
+      description: Получить все категории
+      operationId: categoryList
+      tags:
+        - category
+      parameters:
+        - name: isMain
+          in: query
+          description: вернуть только категории для главной страницы
+          required: false
+          schema:
+            type: boolean
+      responses:
+        200:
+          description: Список категорий
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryResponse'
+  /product/info:
+    get:
+      description: Получение информации о продуке по id
+      operationId: productInfo
+      tags:
+        - product
+      parameters:
+        - name: productId
+          in: query
+          description: product id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Успешный поиск продукта
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /product/list:
+    get:
+      description: Ручка с фильтрами для списка продуктов
+      operationId: productList
+      tags:
+        - product
+      parameters:
+        - name: priceFrom
+          in: query
+          description: мин цена
+          schema:
+            type: integer
+        - name: priceTo
+          in: query
+          description: max цена
+          schema:
+            type: integer
+        - name: searchString
+          in: query
+          description: поисковая строка
+          schema:
+            type: string
+        - name: category
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: список продуктов
+          content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/ProductSearchResponse'
+  /product/search:
+    get:
+      description: Поиск продукта по имени
+      operationId: productSearch
+      tags:
+        - product
+      parameters:
+        - name: searchString
+          in: query
+          description: поисковая строка
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Успешный поиск продукта
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductSearchResponse'
+  /info:
+    get:
+      description: Ручка для получения статуса приложения
+      operationId: info
+      tags:
+        - ping
+      responses:
+        200:
+          description: Все ок
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+  /registration/validateUserData:
+    post:
+      description: Валидация данных пользователя
+      operationId: validateUserData
+      tags:
+        - registration
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationValidationRequest'
+      responses:
+        200:
+          description: результат валидации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationValidationResponse'
+  /registration/register:
+    post:
+      description: регистрация нового пользователя
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationUserRequest'
+      responses:
+        200:
+          description: Пользователь зарегистрирован
+  /cart/add:
+    post:
+      description: добавить товар в корзину
+      operationId: addToCart
+      tags:
+        - cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartRequest'
+      responses:
+        200:
+          description: "ok"
+  /cart/getCart:
+    get:
+      description: получить список товаров в корзине
+      operationId: getCart
+      tags:
+        - cart
+      responses:
+        200:
+          description: "ok"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartResponse'
+  /cart/remove:
+    post:
+      description: удалить из корзины
+      operationId: removeFromCart
+      tags:
+        - cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartRequest'
+      responses:
+        200:
+          description: 'ok'
+components:
+  schemas:
+    CartResponse:
+      type: object
+      description: Список товаров в корзине пользователя
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/CartProduct'
+
+    CartProduct:
+      type: object
+      properties:
+        id:
+          description: id продукта
+          type: integer
+          nullable: false
+        name:
+          description: имя продукта
+          type: string
+          nullable: false
+        price:
+          description: цена
+          type: integer
+        productImage:
+          description: Изображение продукта
+          type: string
+        amount:
+          type: integer
+
+    CartRequest:
+      type: object
+      description: запрос на добавление товара в корзину
+      properties:
+        productId:
+          type: integer
+          nullable: false
+        amount:
+          type: integer
+          nullable: false
+
+
+    ProductSearchResponse:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      properties:
+        id:
+          description: id продукта
+          type: integer
+          nullable: false
+        name:
+          description: имя продукта
+          type: string
+          nullable: false
+        categoryId:
+          description: id категории продукта
+          type: integer
+          nullable: false
+        price:
+          description: цена
+          type: integer
+        productImage:
+          description: Изображение продукта
+          type: string
+        productDescription:
+          description: Описание продукта
+          type: string
+    Status:
+      type: object
+      properties:
+        result:
+          type: string
+    RegistrationValidationRequest:
+      description: запрос валидации регистрационных данных
+      properties:
+        userName:
+          type: string
+          nullable: false
+        email:
+          type: string
+          nullable: false
+    RegistrationValidationResponse:
+      description: результат валидации
+      properties:
+        validationStatus:
+          type: boolean
+          description: результат валидации
+        validationError:
+          type: array
+          description: Список ошибок валидации
+          items:
+            $ref: '#/components/schemas/RegistrationValidationError'
+    RegistrationValidationError:
+      type: object
+      description: Ошибка валидации
+      properties:
+        property:
+          $ref: '#/components/schemas/ValidationProperty'
+        message:
+          type: string
+    RegistrationUserRequest:
+      type: object
+      description: запрос регистрации нового пользователя
+      properties:
+        userName:
+          type: string
+          nullable: false
+        password:
+          type: string
+          nullable: false
+        email:
+          type: string
+          nullable: false
+    ValidationProperty:
+      type: string
+      enum:
+        - user
+        - contact
+    CategoryResponse:
+      type: object
+      description: Список категорий
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+
+    Category:
+      description: Category
+      type: object
+      properties:
+        id:
+          description: id категории
+          type: integer
+          nullable: false
+        name:
+          description: название категории
+          type: string
+          nullable: false
+        mainCategory:
+          description: категория для главной страницы
+          type: boolean
+          nullable: true
+          default: false
+        imageUrl:
+          type: string
+          nullable: true
+
+
+
+
+

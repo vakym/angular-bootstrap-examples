@@ -2,8 +2,11 @@
   "name": "angular-bootstrap-examples",
   "version": "0.0.0",
   "scripts": {
+    "generate:api": "openapi-generator-cli generate -g typescript-angular -i  ./api.yaml -o ./src/openapi",
     "ng": "ng",
+    "prestart": "npm run generate:api",
     "start": "ng serve",
+    "prebuild": "npm run generate:api",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
