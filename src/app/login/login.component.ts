@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { RegistrationModalComponent } from '../registration-modal/registration-modal.component';
 
 @Component({
   selector: 'app-login',
@@ -14,5 +15,9 @@ export class LoginComponent {
 
   openLoginModal() {
     this.modalService.open(LoginModalComponent);
+  }
+  
+  openRegistrationModal() {
+    this.modalService.open(RegistrationModalComponent);
   }
 }

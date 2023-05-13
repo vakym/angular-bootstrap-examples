@@ -1,1 +1,29 @@
-<p>registration-modal works!</p>
+<div class="modal-header">
+	<h4 class="modal-title">Регистрация</h4>
+	<button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+	<p>Логин</p>
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="user" 
+    (ngModelChange)="formCanged()"
+    />
+    <div *ngIf="!validLogin">
+        {{loginError}}
+     </div>
+    <p>Email</p>
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="email"
+    (ngModelChange)="formCanged()" />
+    <div *ngIf="!validEmail">
+       {{emailError}}
+    </div>
+	<p>Пароль</p>
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="password"
+    (ngModelChange)="formCanged()" />
+    <div *ngIf="!validPassword">
+        {{passwordError}}
+     </div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn boxed-btn3" (click)="register()" >Зарегистрироваться</button>
+	<button type="button" class="btn boxed-btn1" (click)="close()">Отмена</button>
+</div>

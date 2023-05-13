@@ -25,6 +25,9 @@ export class ProductListComponent implements OnInit {
     private readonly router: Router) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe(d => {
+      if (d.has("searchString")) {
+        this.searchString = d.get("searchString") || "";
+      }
       var v = Number.parseInt(d.get("id") || "0");
       this.defaultSelectedCategory = v;
       this.selectedCategory = v;

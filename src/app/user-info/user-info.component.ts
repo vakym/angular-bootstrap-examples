@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from '../cart/cart.component';
 import { AuthService } from '../service/auth.service';
+import { CartService } from 'src/openapi';
 
 @Component({
 
@@ -11,7 +12,8 @@ import { AuthService } from '../service/auth.service';
 })
 export class UserInfoComponent {
   constructor(private offcanvasService: NgbOffcanvas,
-    public readonly authService: AuthService) {}
+    public readonly authService: AuthService,
+    private readonly cartService: CartService) {}
 
   openCart() {
 		const offcanvasRef = this.offcanvasService.open(CartComponent);

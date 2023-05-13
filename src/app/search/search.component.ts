@@ -12,7 +12,8 @@ export class SearchComponent {
     constructor(
       private readonly router: Router
     ) {}
-    toSearch() {
 
+    toSearch() {
+      this.router.navigate(["/catalog",{ searchString: this.searchString }])
     }
 }
