@@ -1,0 +1,75 @@
+<app-bradcam [pageName]="title"></app-bradcam>
+<div class="job_listing_area plus_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="job_filter white-bg">
+                    <div class="form_inner white-bg">
+                        <h3>Фильтр</h3>
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="single_field">
+                                        <input type="text" [(ngModel)]="searchString" placeholder="Поиск" (ngModelChange)="filterCanged()"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="single_field">
+                                        <select class="nice-select wide" [(ngModel)]="selectedCategory" (ngModelChange)="filterCanged()">
+                                            <option *ngFor="let c of categoryList | async" value="{{c.id}}"
+                                            [selected]="c.id === defaultSelectedCategory"
+                                             >{{c.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <h4>Цена:</h4>
+                                <div>От</div>
+                                <div class="single_field">
+                                    <input type="number" [(ngModel)]="priceFrom" (ngModelChange)="filterCanged()"/>
+                                </div>
+                                <div>До</div>
+                                <div class="single_field">
+                                    <input type="number"  [(ngModel)]="priceTo" (ngModelChange)="filterCanged()"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reset_btn">
+                        <button class="boxed-btn3 w-100" (click)="resetFilter()">Сбросить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="job_lists m-0">
+                    <div class="row">
+                        <div *ngFor="let p of productList | async" class="col-lg-12 col-md-12">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        <img src="{{p.productImage}}" style=" height: 100%;
+                                        width: 100%;" alt="">
+                                    </div>
+                                    <div class="jobs_conetent">
+                                        <a (click)="toProductPage(p.id)">
+                                            <h4>{{p.name}}</h4>
+                                        </a>
+                                        <div class="links_locat d-flex align-items-center">
+                                            <div class="location">
+                                                <p> <i class="fa fa-map-marker"></i> <a>Цена: {{p.price}}</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jobs_right">
+                                    <div class="apply_now">
+                                        <button class="boxed-btn3" (click)="toProductPage(p.id)">Подробнее</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

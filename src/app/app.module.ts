@@ -28,6 +28,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiModule } from '../openapi/api.module'
 import { FormsModule } from '@angular/forms';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { FormsModule } from '@angular/forms';
     RegistrationModalComponent,
     UserInfoComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    ProductComponent,
+    ProductDetailsComponent,
+    ProductListComponent
   ],
   imports: [
     FormsModule,

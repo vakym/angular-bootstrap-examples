@@ -9,7 +9,6 @@ import { map } from 'rxjs';
   styleUrls: ['./category-popular.component.css']
 })
 export class CategoryPopularComponent {
-  $category =  this.categoryService.categoryList(true).pipe(map(v => v.categories));
-
+  category =  this.categoryService.categoryList(true).pipe(map(v => v.categories));
   constructor(private readonly categoryService: CategoryService){}
 }
