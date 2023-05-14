@@ -31,6 +31,8 @@ import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ManagerComponent } from './manager/manager.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     CartComponent,
     ProductComponent,
     ProductDetailsComponent,
-    ProductListComponent
+    ProductListComponent,
+    ManagerComponent
   ],
   imports: [
     FormsModule,
@@ -66,7 +69,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     MatBadgeModule,
     NgbDropdownModule,
     HttpClientModule,
-    ApiModule
+    ApiModule,
+    MatTabsModule
   ],
   providers: [
     NgbActiveModal

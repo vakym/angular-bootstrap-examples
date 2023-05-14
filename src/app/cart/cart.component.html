@@ -16,10 +16,13 @@
             <tbody>
                 <tr *ngFor="let p of cartList">
                     <td>
-                        <img style="width:100%; height: 90%;" src="{{p.productImage}}"/>
+                        <img style="width:100%; height: 90%;" src="{{p.productImage}}" />
                     </td>
-                    <td><p style="width:30%">{{p.name}}</p></td>
-                    <td><input style="width:40%" type="number" placeholder="{{p.id}}" value="{{p.amount}}" (change)="onChangeEvent($event)" /></td>
+                    <td>
+                        <p style="width:30%">{{p.name}}</p>
+                    </td>
+                    <td><input style="width:40%" type="number" placeholder="{{p.id}}" value="{{p.amount}}"
+                            (change)="onChangeEvent($event)" /></td>
                 </tr>
             </tbody>
         </table>
@@ -27,13 +30,13 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a type="button" class="btn btn-lg boxed-btn3" style="width: 100%;">Оформить заказ</a>
+                <a type="button" (click)="createOrder()" class="btn btn-lg boxed-btn3" style="width: 100%;">Оформить заказ</a>
             </div>
         </div>
         <div class="row">
             <div class="col p-3">
-                <button type="button" class="btn btn-outline-dark" (click)="clearCart()"
-                    style="width: 100%;">Очистить корзину</button>
+                <button type="button" class="btn btn-outline-dark" (click)="clearCart()" style="width: 100%;">Очистить
+                    корзину</button>
             </div>
             <div class="col p-3">
                 <button type="button" class="btn btn-outline-dark" (click)="activeOffcanvas.close('Close click')"
@@ -41,4 +44,15 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div *ngIf="showSuccess">
+                    <h4>Заказ успешно оформлен</h4>
+                    <p>В ближайшее время с вами свяжется на менеджер</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

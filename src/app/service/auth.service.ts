@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Configuration, LoginService } from 'src/openapi';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class AuthService {
 
   private loggedIn = new BehaviorSubject(false);
   private userName = new BehaviorSubject("");
+  private isAdminProp = new BehaviorSubject(false);
   constructor(private readonly loginService: LoginService) { }
 
   signIn(user: string, password: string): Observable<boolean> {
@@ -20,6 +22,10 @@ export class AuthService {
     return this.loginService.login()
     .pipe(map(token => {
       localStorage.setItem('access_token', token);
+      var data = jwt_decode(token) as any;
+      if (data.scope === "fulladmin") {
+        this.isAdminProp.next(true);
+      }
       this.loggedIn.next(true);
       this.userName.next(user);
       return true;
@@ -30,12 +36,17 @@ export class AuthService {
     return this.loggedIn;
   }
 
+  isAdmin(): Observable<boolean> {
+    return this.isAdminProp;
+  }
+
   getUserName(): Observable<string> {
     return this.userName;
   }
 
   doLogout() {
     localStorage.removeItem('access_token');
+    this.isAdminProp.next(false);
     this.loggedIn.next(false);
   }
 

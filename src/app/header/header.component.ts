@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isCollapsed: boolean = false;
+
+  constructor(private readonly authService: AuthService) {
+  }
+
+  isManager() {
+    return this.authService.isAdmin();
+  }
+
   ngOnInit(): void {
     this.isCollapsed = true;
   } 

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../openapi/api/category.service'
-import { map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
+import { Category } from 'src/openapi';
 
 
 @Component({
@@ -8,7 +9,14 @@ import { map } from 'rxjs';
   templateUrl: './category-popular.component.html',
   styleUrls: ['./category-popular.component.css']
 })
-export class CategoryPopularComponent {
-  category =  this.categoryService.categoryList(true).pipe(map(v => v.categories));
+export class CategoryPopularComponent implements OnInit{
+  
+  public category = new BehaviorSubject([] as Category[]);
+
   constructor(private readonly categoryService: CategoryService){}
+  ngOnInit(): void {
+     this.categoryService.categoryList(true)
+     .pipe(map(v =>{ console.log(v); return v;}))
+     .subscribe(v => this.category.next(v.categories || []));
+  }
 }
