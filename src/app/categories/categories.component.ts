@@ -8,6 +8,6 @@ import { map } from 'rxjs';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent {
-  category =  this.categoryService.categoryList(true).pipe(map(v => v.categories));
+  category =  this.categoryService.categoryList(false).pipe(map(v => v.categories));
   constructor(private readonly categoryService: CategoryService) {}
 }
