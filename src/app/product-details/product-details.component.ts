@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CartService, Product, ProductService, CartRequest } from 'src/openapi';
+import { Product, ProductService, CartRequest } from 'src/openapi';
 import { AuthService } from '../service/auth.service';
 import { Observable, map } from 'rxjs';
+import { CartHolderService } from '../service/cart-holder.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,7 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   public amount: number = 1;
   constructor(private readonly productService: ProductService,
               private readonly authService: AuthService,
-              private readonly cartService: CartService){}
+              private readonly cartHolderService: CartHolderService){}
   ngOnInit(): void {
     this.productService.productInfo(this.productId)
       .subscribe(data => this.product = data);
@@ -25,11 +26,10 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart() {
-      this.cartService.configuration.credentials = { "BearerAuth" : this.authService.getToken() || ""};
       var req: CartRequest = {
         productId: this.productId,
         amount: this.amount
       };
-      this.cartService.addToCart(req).subscribe(resp => console.log(resp));
+      this.cartHolderService.addToCart(req);
   }
 }

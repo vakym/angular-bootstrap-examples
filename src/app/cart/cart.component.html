@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of cartList">
+                <tr *ngFor="let p of cartList | async">
                     <td>
                         <img style="width:100%; height: 90%;" src="{{p.productImage}}" />
                     </td>
