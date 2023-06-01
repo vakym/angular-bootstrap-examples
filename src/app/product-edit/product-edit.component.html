@@ -1,0 +1,22 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{title}}</h4>
+	<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+	<p>Имя продукта</p>
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="product.name" />
+	<p>Картинка</p>
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="product.productImage" />
+    <p>Цена</p>
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="product.price" />
+    <p>Категория</p>
+	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="product.categoryId" />
+    <p>Описание</p>
+    <textarea class="form-control" rows="13"  [(ngModel)]="product.productDescription">
+    </textarea>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn boxed-btn3" (click)="updateProduct()">{{buttonText}}</button>
+    <button *ngIf="productId != 0" type="button" class="btn boxed-btn1" (click)="deleteProduct()">Удалить</button>
+	<button type="button" class="btn boxed-btn1" (click)="activeModal.close('Close click')">Отмена</button>
+</div>

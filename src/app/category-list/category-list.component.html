@@ -1,0 +1,35 @@
+<div class="container">
+  <div>
+    <button mat-raised-button (click)="addCategory(0)" class="boxed-btn3" style="margin: 5px;">
+      Добавить категорию
+    </button>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Название</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="main">
+      <th mat-header-cell *matHeaderCellDef>На главной</th>
+      <td mat-cell *matCellDef="let element"><input type="checkbox" disabled [checked]="element.mainCategory"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef>Картинка</th>
+        <td mat-cell *matCellDef="let element">{{element.imageUrl}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row 
+    (click)="addCategory(row.id)"
+    *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

@@ -33,6 +33,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { ManagerComponent } from './manager/manager.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { UserListComponent } from './user-list/user-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { OrdersListComponent } from './orders-list/orders-list.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { ProductAdminListComponent } from './product-admin-list/product-admin-list.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 
 @NgModule({
@@ -56,7 +64,13 @@ import {MatTabsModule} from '@angular/material/tabs';
     ProductComponent,
     ProductDetailsComponent,
     ProductListComponent,
-    ManagerComponent
+    ManagerComponent,
+    UserListComponent,
+    OrdersListComponent,
+    CategoryListComponent,
+    ProductAdminListComponent,
+    CategoryEditComponent,
+    ProductEditComponent
   ],
   imports: [
     FormsModule,
@@ -70,7 +84,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     NgbDropdownModule,
     HttpClientModule,
     ApiModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [
     NgbActiveModal

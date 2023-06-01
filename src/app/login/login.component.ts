@@ -18,6 +18,7 @@ export class LoginComponent {
   }
   
   openRegistrationModal() {
-    this.modalService.open(RegistrationModalComponent);
+    const modalRef = this.modalService.open(RegistrationModalComponent);
+    modalRef.componentInstance.title = 'Регистрация';
   }
 }

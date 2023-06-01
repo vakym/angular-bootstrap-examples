@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationService, RegistrationUserRequest, RegistrationValidationRequest } from 'src/openapi';
 
@@ -9,6 +9,7 @@ import { RegistrationService, RegistrationUserRequest, RegistrationValidationReq
 })
 export class RegistrationModalComponent {
 
+  public title: string = "";
   public user: string = "";
   public password: string = "";
   public email: string = "";
