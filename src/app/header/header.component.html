@@ -19,9 +19,8 @@
                                         <li><a routerLink="">Главная</a></li>
                                         <li><a routerLink="/about">О нас</a></li>
                                         <li><a routerLink="/categories">категории </a></li>
-                                        <li><a [routerLink]="['product', '1']">Продукт</a></li> 
                                         <li><a routerLink="/catalog">Каталог</a></li>
-                                        <li *ngIf="isManager() | async"><a routerLink="/manager">Панель управления</a></li>
+                                        <li *ngIf="isManager() | async"><a routerLink="/manager">Админ панель</a></li>
                                     </ul>
                                 </nav>
                             </div>

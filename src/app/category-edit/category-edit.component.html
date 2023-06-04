@@ -12,6 +12,6 @@
 </div>
 <div class="modal-footer">
 	<button type="button" class="btn boxed-btn3" (click)="updateCategory()">{{buttonText}}</button>
-    <button *ngIf="categoryId != 0" type="button" class="btn boxed-btn1" (click)="deleteCategory()">Удалить</button>
+    <button *ngIf="categoryId != 0" type="button" class="btn boxed-btn1" (click)="deleteCategory(categoryId)">Удалить</button>
 	<button type="button" class="btn boxed-btn1" (click)="activeModal.close('Close click')">Отмена</button>
 </div>

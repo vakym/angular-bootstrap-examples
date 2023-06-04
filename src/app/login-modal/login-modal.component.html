@@ -3,6 +3,7 @@
 	<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
 </div>
 <div class="modal-body">
+	<p *ngIf="error" style="color: brown;">Не правильный логин или пароль</p>
 	<p>Логин</p>
 	<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="user" />
 	<p>Пароль</p>

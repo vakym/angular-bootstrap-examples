@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product, ProductService } from 'src/openapi';
+import { AddProductRequest, AdminService, Product, ProductService } from 'src/openapi';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class ProductEditComponent  implements OnInit{
 
   constructor(public readonly activeModal: NgbActiveModal,
     private readonly authService: AuthService,
-    private readonly productService: ProductService) {}
+    private readonly productService: ProductService,
+    private readonly adminService: AdminService) {}
   
   ngOnInit(): void {
     if (this.productId != 0) {
@@ -25,15 +26,35 @@ export class ProductEditComponent  implements OnInit{
     }
   }
 
-  deleteProduct() {
-    
+  deleteProduct(productId: number) {
+    this.adminService.configuration.credentials = { "BearerAuth" : this.authService.getToken() || ""};
+    this.adminService.removeProduct(productId).subscribe(v => v);
+    this.activeModal.close("Close");
   }
 
   updateProduct() {
     if (this.productId != 0) {
-      // обновить категорию
+      this.adminService.configuration.credentials = { "BearerAuth" : this.authService.getToken() || ""};
+      var req: AddProductRequest = {
+        id: this.product.id,
+        name: this.product.name,
+        price: this.product.price,
+        description: this.product.productDescription,
+        categoryId: this.product.categoryId,
+        picture: this.product.productImage  
+      };
+      this.adminService.updateProduct(req).subscribe(v => v);
     } else {
-      // добавить категорию
+      this.adminService.configuration.credentials = { "BearerAuth" : this.authService.getToken() || ""};
+      var req: AddProductRequest = {
+        id: this.product.id,
+        name: this.product.name,
+        price: this.product.price,
+        description: this.product.productDescription,
+        categoryId: this.product.categoryId,
+        picture: this.product.productImage  
+      };
+      this.adminService.addProduct(req).subscribe(v=>v);
     }
     this.activeModal.close("Close");
   }

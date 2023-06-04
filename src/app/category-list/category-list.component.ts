@@ -41,5 +41,10 @@ export class CategoryListComponent implements OnInit {
       modalRef.componentInstance.buttonText = 'Обновить';
       modalRef.componentInstance.categoryId = categoryId;
     }
+    modalRef.result.then(res => {
+      this.adminService.configuration.credentials = { "BearerAuth": this.authService.getToken() || "" };
+      this.categoryService.categoryList(false).subscribe(v => this.dataSource.next(v.categories || []));
+    });
+   
   }
 }

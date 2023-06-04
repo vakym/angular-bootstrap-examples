@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BehaviorSubject } from 'rxjs';
-import { User, AdminService, ProductService, Product } from 'src/openapi';
+import { AdminService, ProductService, Product } from 'src/openapi';
 import { AuthService } from '../service/auth.service';
 import { ProductEditComponent } from '../product-edit/product-edit.component';
 
@@ -43,5 +43,9 @@ export class ProductAdminListComponent implements OnInit {
       modalRef.componentInstance.buttonText = 'Обновить';
       modalRef.componentInstance.productId = productId;
     }
+    modalRef.result.then(res => {
+      this.updateProductList();
+    });
+   
   }
 }

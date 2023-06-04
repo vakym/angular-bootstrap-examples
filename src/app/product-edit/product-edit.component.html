@@ -17,6 +17,6 @@
 </div>
 <div class="modal-footer">
 	<button type="button" class="btn boxed-btn3" (click)="updateProduct()">{{buttonText}}</button>
-    <button *ngIf="productId != 0" type="button" class="btn boxed-btn1" (click)="deleteProduct()">Удалить</button>
+    <button *ngIf="productId != 0" type="button" class="btn boxed-btn1" (click)="deleteProduct(productId)">Удалить</button>
 	<button type="button" class="btn boxed-btn1" (click)="activeModal.close('Close click')">Отмена</button>
 </div>

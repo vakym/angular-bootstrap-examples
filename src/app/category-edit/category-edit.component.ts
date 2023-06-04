@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Category, CategoryService } from 'src/openapi';
+import { AdminService, Category, CategoryService } from 'src/openapi';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -16,9 +16,11 @@ export class CategoryEditComponent implements OnInit {
   category: Category = {};
   
 
-  constructor(public readonly activeModal: NgbActiveModal,
+  constructor(
+    public readonly activeModal: NgbActiveModal,
     private readonly authService: AuthService,
-    private readonly categoryService: CategoryService) {}
+    private readonly categoryService: CategoryService,
+    private readonly adminService: AdminService) {}
   
     ngOnInit(): void {
     if (this.categoryId != 0) {
@@ -27,15 +29,21 @@ export class CategoryEditComponent implements OnInit {
     }
   }
 
-  deleteCategory() {
-    
+  deleteCategory(id: number) {
+    this.adminService.configuration.credentials = { "BearerAuth" : this.authService.getToken() || ""};
+    this.adminService.removeCategory(id).subscribe(v =>v);
+    this.activeModal.close("Close");
   }
 
   updateCategory() {
     if (this.categoryId != 0) {
-      // обновить категорию
+      this.adminService.configuration.credentials = { "BearerAuth" : this.authService.getToken() || ""};
+      this.adminService.updateCategory(this.category.id, this.category.name, this.category.mainCategory, this.category.imageUrl)
+      .subscribe(v =>v);
     } else {
-      // добавить категорию
+      this.adminService.configuration.credentials = { "BearerAuth" : this.authService.getToken() || ""};
+      this.adminService.addCategory(this.category.name, this.category.mainCategory, this.category.imageUrl)
+      .subscribe(v=>v);
     }
     this.activeModal.close("Close");
   }

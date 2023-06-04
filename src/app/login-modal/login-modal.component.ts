@@ -10,6 +10,7 @@ import { AuthService } from '../service/auth.service';
 export class LoginModalComponent {
   user: string = "";
   password: string = "";
+  error: boolean = false;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -17,6 +18,6 @@ export class LoginModalComponent {
 
   login() {
       this.authService.signIn(this.user, this.password)
-      .subscribe(result => result ? this.activeModal.close():"");
+      .subscribe(result => result ? this.activeModal.close():"", er => this.error = true);
   }
 }

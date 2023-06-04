@@ -39,5 +39,10 @@ export class UserListComponent implements OnInit {
   addUser() {
     const modalRef = this.modalService.open(RegistrationModalComponent);
     modalRef.componentInstance.title = 'Добавление пользователя';
+    
+    modalRef.result.then(res => {
+      this.adminService.configuration.credentials = { "BearerAuth": this.authService.getToken() || "" };
+      this.adminService.getUserList().subscribe(v => this.dataSource.next(v.users || []));
+    });
   }
 }
